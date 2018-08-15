@@ -1,0 +1,74 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "max-line-length": [
+            false,
+            120
+        ],
+        "space-before-function-paren": false,
+        "no-trailing-whitespace": false,
+        "one-line": [
+            true,
+            "check-open-brace",
+            "check-catch",
+            "check-else",
+            "check-whitespace"
+        ],
+        "no-var-keyword": true,
+        "comment-format": [
+            true,
+            "check-space"
+        ],
+        "quotemark": false,
+        "prefer-const": true,
+        "no-console": [
+            false,
+            "log",
+            "error"
+        ],
+        "max-classes-per-file": [
+            false,
+            1
+        ],
+        "variable-name": [
+            true,
+            "ban-keywords",
+            "check-format",
+            "allow-leading-underscore"
+        ],
+        "object-literal-sort-keys": [
+            true,
+            "ignore-case",
+            "match-declaration-order"
+        ],
+        "curly": [
+            true,
+            "ignore-same-line"
+        ],
+        "object-literal-shorthand": false,
+        "member-ordering": [
+            true,
+            {
+                "order": [
+                    {
+                        "name": "static non-private",
+                        "kinds": [
+                            "public-static-field",
+                            "protected-static-field",
+                            "public-static-method",
+                            "protected-static-method"
+                        ]
+                    },
+                    "constructor"
+                ]
+            }
+        ]
+    },
+    "rulesDirectory": [
+        "appts"
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "mhxy-cbg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./app/main.js",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikyWang/mhxy-cbg.git"
+  },
+  "author": "miky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikyWang/mhxy-cbg/issues"
+  },
+  "homepage": "https://github.com/MikyWang/mhxy-cbg#readme",
+  "dependencies": {
+    "npm": "^6.3.0",
+    "querystring": "^0.2.0"
+  }
+}
