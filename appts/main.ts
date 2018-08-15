@@ -1,6 +1,9 @@
+import { Search } from "./search";
+
 class App {
     public static startUp() {
-        console.log('hello world');
+        const search = new Search();
+        search.searchMixPlayer(1);
     }
 }
 

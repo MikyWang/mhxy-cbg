@@ -19,6 +19,11 @@
   },
   "homepage": "https://github.com/MikyWang/mhxy-cbg#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
+    "nodemailer": "^4.6.8",
+    "nodemailer-direct-transport": "^3.3.2",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "nodemailer-wellknown": "^0.2.3",
     "npm": "^6.3.0",
     "querystring": "^0.2.0"
   }

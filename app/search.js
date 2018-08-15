@@ -1,15 +1,15 @@
-import https = require('https');
-import { Filter } from "./filter";
-import { IResult } from './interface';
-import { Reporter } from './reporter';
-
-export class Search {
-    public searchMixPlayer(page: number) {
-        const filter = new Filter();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const https = require("https");
+const filter_1 = require("./filter");
+const reporter_1 = require("./reporter");
+class Search {
+    searchMixPlayer(page) {
+        const filter = new filter_1.Filter();
         filter.page = page;
         const querystring = filter.toQueryString();
         const url = `https://xyq.cbg.163.com/cgi-bin/xyq_overall_search.py?` + querystring;
-        const req = https.get(url as https.RequestOptions, (res) => {
+        const req = https.get(url, (res) => {
             console.log('STATUS:' + res.statusCode);
             console.log('HEADERS:' + JSON.stringify(res.headers));
             res.setEncoding('utf-8');
@@ -18,13 +18,13 @@ export class Search {
                 result += data;
             });
             res.on('end', () => {
-                const searchResult: IResult = JSON.parse(result);
+                const searchResult = JSON.parse(result);
                 console.log(searchResult);
                 if (searchResult.status === 2) {
                     console.log('已被IP检测，请稍后再试！');
                     return;
                 }
-                const reporter = new Reporter('xxx@qq.com', 'xxxx');
+                const reporter = new reporter_1.Reporter('813853090@qq.com', 'wangqy4534520');
                 reporter.sendReport('813853090@qq.com', "厕所");
                 if (page < searchResult.pager.num_end) {
                     setTimeout(() => {
@@ -38,3 +38,5 @@ export class Search {
         });
     }
 }
+exports.Search = Search;
+//# sourceMappingURL=search.js.map

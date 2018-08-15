@@ -37,7 +37,6 @@
         "variable-name": [
             true,
             "ban-keywords",
-            "check-format",
             "allow-leading-underscore"
         ],
         "object-literal-sort-keys": [
