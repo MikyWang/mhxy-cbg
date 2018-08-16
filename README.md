@@ -2,7 +2,7 @@
 1. 打开`cbgconfig.json`进行初始化配置
 2. 命令行打开项目根目录，执行命令`npm start`
 
-#cbgconfig.json属性注释
+# cbgconfig.json属性注释
 + `smtpAccount` 用来发送邮件的QQ邮箱地址
 + `smtpPassword` 用来发送邮件的QQ邮箱SMTP授权码（不是QQ密码！）参考[打开QQ邮箱SMTP验证并获取授权码](https://jingyan.baidu.com/article/6d704a133a245f28db51caf5.html)
 + `reporterSubject` 邮件标题
