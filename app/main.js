@@ -11,7 +11,8 @@ class App {
         if (App.config)
             return App.config;
         const content = fs.readFileSync(process.cwd() + '/cbgconfig.json', "utf-8");
-        return JSON.parse(content);
+        App.config = JSON.parse(content);
+        return App.config;
     }
 }
 App.config = null;

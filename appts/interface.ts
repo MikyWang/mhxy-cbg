@@ -22,6 +22,9 @@ export interface IConfig {
     level_max: number;
     expt_fangyu: number;
     expt_kangfa: number;
+    skill_shensu: number;
+    skill_qiang_zhuang: number;
+    qian_yuan_dan: number;
     bb_expt_gongji: number;
     bb_expt_fashu: number;
     expectPrice: number;

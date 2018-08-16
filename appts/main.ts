@@ -14,7 +14,8 @@ export class App {
     public static getConfig(): IConfig {
         if (App.config) return App.config;
         const content = fs.readFileSync(process.cwd() + '/cbgconfig.json', "utf-8");
-        return JSON.parse(content) as IConfig;
+        App.config = JSON.parse(content) as IConfig;
+        return App.config;
     }
 }
 

@@ -2,13 +2,16 @@
     "smtpAccount": "813853090@qq.com",
     "smtpPassword": "bceasjkuualgbbdi",
     "reporterSubject": "已获取到期望角色拍卖信息！",
-    "recvMail": "1576352730@qq.com",
+    "recvMail": "813853090@qq.com",
     "interval": 1,
     "level_min": 159,
     "level_max": 159,
     "expt_fangyu": 25,
     "expt_kangfa": 25,
+    "skill_shensu": 40,
+    "skill_qiang_zhuang": 40,
+    "qian_yuan_dan": 7,
     "bb_expt_gongji": 25,
     "bb_expt_fashu": 20,
-    "expectPrice": 9000
+    "expectPrice": 8500
 }
