@@ -1,6 +1,7 @@
 # 使用方法
-1. 打开`cbgconfig.json`进行初始化配置
-2. 命令行打开项目根目录，执行命令`npm start`
+1. 在项目根目录执行`npm install`
+2. 打开`cbgconfig.json`进行初始化配置
+3. 命令行打开项目根目录，执行命令`npm start`
 
 # cbgconfig.json属性注释
 + `smtpAccount` 用来发送邮件的QQ邮箱地址
