@@ -12,6 +12,7 @@ export class Search {
         filter.page = page;
         const querystring = filter.toQueryString();
         const url = `https://xyq.cbg.163.com/cgi-bin/xyq_overall_search.py?` + querystring;
+        console.log(url);
         const req = https.get(url as https.RequestOptions, (res) => {
             console.log('STATUS:' + res.statusCode);
             console.log('HEADERS:' + JSON.stringify(res.headers));
