@@ -8,7 +8,9 @@ export class App {
 
     public static startUp() {
         const search = new Search();
-        search.searchMixPlayer(1);
+        setTimeout(() => {
+            search.searchMixPlayer(1);
+        }, 600000);
     }
 
     public static getConfig(): IConfig {
