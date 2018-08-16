@@ -11,3 +11,18 @@ export interface IResult {
     pager: IPager;
     equip_list: Player[];
 }
+
+export interface IConfig {
+    smtpAccount: string;
+    smtpPassword: string;
+    reporterSubject: string;
+    recvMail: string;
+    interval: number;
+    level_min: number;
+    level_max: number;
+    expt_fangyu: number;
+    expt_kangfa: number;
+    bb_expt_gongji: number;
+    bb_expt_fashu: number;
+    expectPrice: number;
+}

@@ -1,6 +1,9 @@
 import https = require('https');
+import { Directer } from './Directer';
 import { Filter } from "./filter";
 import { IResult } from './interface';
+import { App } from './main';
+import { Player } from './player';
 import { Reporter } from './reporter';
 
 export class Search {
@@ -19,22 +22,31 @@ export class Search {
             });
             res.on('end', () => {
                 const searchResult: IResult = JSON.parse(result);
-                console.log(searchResult);
                 if (searchResult.status === 2) {
                     console.log('已被IP检测，请稍后再试！');
                     return;
                 }
-                const reporter = new Reporter('xxx@qq.com', 'xxxx');
-                reporter.sendReport('813853090@qq.com', "厕所");
                 if (page < searchResult.pager.num_end) {
                     setTimeout(() => {
                         this.searchMixPlayer(page + 1);
-                    }, 5000);
+                    }, App.getConfig().interval);
                 }
+                this.VerifyResult(searchResult.equip_list, App.getConfig().expectPrice);
             });
         });
         req.on('error', (err) => {
             throw err;
+        });
+    }
+
+    public VerifyResult(players: Player[], expPrice: number) {
+        const expPlayers = players.filter((player) => Number.parseFloat(player.price) <= expPrice);
+        expPlayers.forEach((expPlayer) => {
+            const directer = new Directer();
+            directer.init(expPlayer.serverid, expPlayer.eid, 1);
+            const url = `https://xyq.cbg.163.com/equip?` + directer.toQueryString();
+            const reporter = new Reporter(App.getConfig().smtpAccount, App.getConfig().smtpPassword);
+            reporter.sendReport(url);
         });
     }
 }

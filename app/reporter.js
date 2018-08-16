@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const nodemailer = require("nodemailer");
 const smtpTransport = require("nodemailer-smtp-transport");
 const wellknow = require("nodemailer-wellknown");
+const main_1 = require("./main");
 class Reporter {
     constructor(acc, pass) {
         const config = wellknow("QQ");
@@ -12,17 +13,17 @@ class Reporter {
         };
         this.transporter = nodemailer.createTransport(smtpTransport(config));
     }
-    sendReport(mailAddress, msg) {
+    sendReport(msg) {
         const mailOptions = {
-            from: "cbg-reporter<@qq.com>",
-            to: "813853090@qq.com",
-            subject: "符合条件的角色！",
+            from: `cbg-reporter<` + main_1.App.getConfig().smtpAccount + `>`,
+            to: main_1.App.getConfig().recvMail,
+            subject: main_1.App.getConfig().reporterSubject,
             text: msg,
         };
         this.transporter.sendMail(mailOptions, (error, info) => {
             if (error)
                 throw error;
-            console.log('Message sent: ' + info.response);
+            console.log('已发送邮件,发送状态:' + info.response);
         });
     }
 }
