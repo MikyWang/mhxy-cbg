@@ -20,7 +20,7 @@
 + `bb_expt_fashu` 查询角色宝宝法术控制
 + `expectPrice` 期望收购价格
 
-#增加过滤条件方法
+# 增加过滤条件方法
 1. 打开`cbgconfig.json`，并将过滤字段名添加。
 2. 打开`interface.ts`，并将过滤字段添加。
 3. 打开 `filter.ts`，并将过滤字段添加，并且在`constructor`方法里头添加字段赋值（参考其他字段）
