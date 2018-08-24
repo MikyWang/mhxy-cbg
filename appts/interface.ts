@@ -22,10 +22,17 @@ export interface IConfig {
     level_max: number;
     expt_fangyu: number;
     expt_kangfa: number;
+    expt_fashu: number;
     skill_shensu: number;
     skill_qiang_zhuang: number;
     qian_yuan_dan: number;
     bb_expt_gongji: number;
     bb_expt_fashu: number;
+    xiangrui_list: string;
     expectPrice: number;
+}
+
+export interface ISearchResult {
+    url: string;
+    price: number;
 }

@@ -8,9 +8,11 @@ export class Filter {
     public expt_kangfa: number;
     public bb_expt_gongji: number;
     public bb_expt_fashu: number;
+    public expt_fashu: number;
     public skill_shensu: number;
     public skill_qiang_zhuang: number;
     public qian_yuan_dan: number;
+    public xiangrui_list: string;
     public act: string = 'overall_search_role';
     public page: number = 1;
 
@@ -24,6 +26,8 @@ export class Filter {
         this.skill_shensu = App.getConfig().skill_shensu;
         this.qian_yuan_dan = App.getConfig().qian_yuan_dan;
         this.skill_qiang_zhuang = App.getConfig().skill_qiang_zhuang;
+        this.xiangrui_list = App.getConfig().xiangrui_list;
+        this.expt_fashu = App.getConfig().expt_fashu;
     }
 
     public toQueryString(): string {

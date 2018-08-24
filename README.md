@@ -13,11 +13,13 @@
 + `level_max` 查询角色最高等级
 + `expt_fangyu` 查询角色防御修炼
 + `expt_kangfa` 查询角色抗法修炼
++ `expt_fashu` 角色法术修炼
 + `skill_shensu` 查询角色神速
 + `skill_qiang_zhuang` 查询角色强壮
 + `qian_yuan_dan` 查询角色乾元丹个数
 + `bb_expt_gongji` 查询角色宝宝攻击控制
 + `bb_expt_fashu` 查询角色宝宝法术控制
++ `xiangrui_list` 携带祥瑞
 + `expectPrice` 期望收购价格
 
 # 增加过滤条件方法

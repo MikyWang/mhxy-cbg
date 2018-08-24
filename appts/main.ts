@@ -23,6 +23,6 @@ const startup = () => {
     App.startUp();
     setTimeout(() => {
         startup();
-    }, 60000);
+    }, 300000);
 };
 startup();

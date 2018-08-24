@@ -1,12 +1,15 @@
 import https = require('https');
 import { Directer } from './Directer';
 import { Filter } from "./filter";
-import { IResult } from './interface';
+import { IResult, ISearchResult } from './interface';
 import { App } from './main';
 import { Player } from './player';
 import { Reporter } from './reporter';
 
 export class Search {
+
+    private resultList: ISearchResult[] = [];
+
     public searchMixPlayer(page: number) {
         const filter = new Filter();
         filter.page = page;
@@ -33,6 +36,9 @@ export class Search {
                     }, App.getConfig().interval);
                 }
                 this.VerifyResult(searchResult.equip_list, App.getConfig().expectPrice);
+                if (page === searchResult.pager.num_end && this.resultList.length > 0) {
+                    this.SendSearchResult();
+                }
             });
         });
         req.on('error', (err) => {
@@ -46,8 +52,20 @@ export class Search {
             const directer = new Directer();
             directer.init(expPlayer.serverid, expPlayer.eid, 1);
             const url = `https://xyq.cbg.163.com/equip?` + directer.toQueryString();
-            const reporter = new Reporter(App.getConfig().smtpAccount, App.getConfig().smtpPassword);
-            reporter.sendReport(url);
+            this.resultList.push({ url: url, price: Number.parseFloat(expPlayer.price) });
         });
     }
+
+    public SendSearchResult() {
+        this.resultList.sort((a, b) => {
+            return a.price - b.price;
+        });
+        const reporter = new Reporter(App.getConfig().smtpAccount, App.getConfig().smtpPassword);
+        let content = '';
+        this.resultList.forEach((result) => {
+            content += `价格[` + result.price + `],url:` + result.url + `\n`;
+        });
+        reporter.sendReport(content);
+    }
+
 }
